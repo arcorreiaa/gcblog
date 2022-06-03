@@ -34,6 +34,7 @@ export default function Home() {
       const response = await getFavorite();
       setFavCategory(response);
     }
+    favorite();
   }, []);
 
   //favoritando uma categoria precionando no app
