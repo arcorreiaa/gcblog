@@ -14,14 +14,18 @@ import api from "../../services/api";
 import CategoryItem from "../../components/CategoryItem";
 import { getFavorite, setFavorite } from "../../services/favorite";
 import FavoritePosts from "../../components/FavoritePost";
+import PostItem from "../../components/PostItem";
 
 export default function Home() {
   const navigation = useNavigation();
   const [categories, setCategories] = useState([]);
   const [favCategory, setFavCategory] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     async function loadData() {
+      await getListPosts();
+
       const category = await api.get("/api/categories?populate=icon");
       setCategories(category.data.data);
     }
@@ -36,6 +40,13 @@ export default function Home() {
     }
     favorite();
   }, []);
+
+  async function getListPosts() {
+    const response = await api.get(
+      "api/posts?populate=cover&sort=createdAt:desc"
+    );
+    setPosts(response.data.data);
+  }
 
   //favoritando uma categoria precionando no app
   async function handleFavorite(id) {
@@ -88,6 +99,14 @@ export default function Home() {
         >
           Conteúdos em alta
         </Text>
+
+        <FlatList
+          style={{ flex: 1, paddingHorizontal: 18 }}
+          showsVerticalScrollIndicator={false}
+          data={posts}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => <PostItem data={item} />}
+        />
       </View>
     </SafeAreaView>
   );
@@ -113,13 +132,13 @@ const styles = StyleSheet.create({
   },
   categories: {
     maxHeight: 115,
-    backgroundColor: "#FFF",
+    backgroundColor: "#EFEFEF",
     marginHorizontal: 18,
     borderRadius: 8,
     zIndex: 9,
   },
   main: {
-    backgroundColor: "#FFF",
+    backgroundColor: "#cf6113",
     flex: 1,
     marginTop: -40,
   },

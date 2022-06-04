@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
+// categorias de item
+
 export default function CategoryItem({ data, favorite }) {
   const navigation = useNavigation();
 
@@ -34,7 +36,7 @@ export default function CategoryItem({ data, favorite }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
+    backgroundColor: "#EFEFEF",
     marginLeft: 8,
     marginVertical: 8,
     borderRadius: 8,

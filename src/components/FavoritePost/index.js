@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   cover: {
     borderRadius: 4,
-    width: WIDTH - 60,
+    width: WIDTH - 50,
     height: 100,
     justifyContent: "flex-end",
     backgroundColor: "#232630",
