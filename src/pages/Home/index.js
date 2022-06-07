@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import api from "../../services/api";
@@ -15,12 +14,18 @@ import CategoryItem from "../../components/CategoryItem";
 import { getFavorite, setFavorite } from "../../services/favorite";
 import FavoritePosts from "../../components/FavoritePost";
 import PostItem from "../../components/PostItem";
+import * as Animatable from "react-native-animatable";
+
+// mudando o nome da flatlist para poder colocar animação dentro dela
+const FlatListAnimated = Animatable.createAnimatableComponent(FlatList);
 
 export default function Home() {
   const navigation = useNavigation();
   const [categories, setCategories] = useState([]);
   const [favCategory, setFavCategory] = useState([]);
   const [posts, setPosts] = useState([]);
+  // quando puxar tela pra atualizar atribue a esse estado
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -42,10 +47,15 @@ export default function Home() {
   }, []);
 
   async function getListPosts() {
+    // aqui ele muda pra true o refresh
+    setLoading(true);
+
     const response = await api.get(
       "api/posts?populate=cover&sort=createdAt:desc"
     );
     setPosts(response.data.data);
+    // depois que ele faz a busca muda pra falso
+    setLoading(false);
   }
 
   //favoritando uma categoria precionando no app
@@ -59,14 +69,18 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.name}>GCBLOG</Text>
+        <Animatable.Text style={styles.name} animation={"fadeInLeft"}>
+          GCBLOG
+        </Animatable.Text>
 
         <TouchableOpacity onPress={() => navigation.navigate("Search")}>
           <Feather name="search" size={24} color="#FFF" />
         </TouchableOpacity>
       </View>
 
-      <FlatList
+      <FlatListAnimated
+        animation="flipInX"
+        delay={500}
         showsHorizontalScrollIndicator={false}
         horizontal={true}
         contentContainerStyle={{ paddingRight: 12 }}
@@ -106,6 +120,9 @@ export default function Home() {
           data={posts}
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => <PostItem data={item} />}
+          refreshing={loading}
+          // função de criar efeito de carregando mais na tela
+          onRefresh={() => getListPosts()}
         />
       </View>
     </SafeAreaView>
@@ -138,7 +155,7 @@ const styles = StyleSheet.create({
     zIndex: 9,
   },
   main: {
-    backgroundColor: "#cf6113",
+    backgroundColor: "#fff",
     flex: 1,
     marginTop: -40,
   },

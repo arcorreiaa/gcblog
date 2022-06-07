@@ -14,7 +14,7 @@ export default function PostItem({ data }) {
         <Image
           style={styles.cover}
           source={{
-            uri: `http:/192.168.1.103:1337${data?.attributes?.cover?.data?.attributes?.url}`,
+            uri: `http:/192.168.1.102:1337${data?.attributes?.cover?.data?.attributes?.url}`,
           }}
         />
       </View>
@@ -32,7 +32,7 @@ export default function PostItem({ data }) {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: "#EFEFEF",
+    borderColor: "#cf6113",
     borderRadius: 4,
     marginBottom: 14,
     paddingHorizontal: 12,

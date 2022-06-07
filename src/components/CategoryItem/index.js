@@ -36,7 +36,7 @@ export default function CategoryItem({ data, favorite }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#EFEFEF",
+    backgroundColor: "#fff",
     marginLeft: 8,
     marginVertical: 8,
     borderRadius: 8,
