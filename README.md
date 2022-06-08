@@ -15,10 +15,10 @@
 
 ```bash
 # Clone o repositório
-$ git clone 
+$ git clone https://github.com/arcorreiaa/gcblog.git
 
 # Entre na pasta
-$ cd tinnova
+$ cd gcblog
 
 # Instale as dependencias
 $ yarn install
