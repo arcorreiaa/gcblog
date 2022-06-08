@@ -1,9 +1,16 @@
+# Projeto pessoal de um mini blog sobre um dos meus jogos favoritos de infância e adolescência 
+
+
 </br>
+</br>
+
 <div align="center">
  
 <img src="https://github.com/arcorreiaa/portifolio/blob/main/src/assets/img/grandchase.gif" width="300" height="600" alt="Logo of the project" align="center">
 </div>
 </br>
+</br>
+
 
 # Link para download android
 
@@ -39,15 +46,22 @@ $ yarn start
 
 </br>
 
-##Run
+## Checklist 
 
-</br>
-
-```bash
-# Falta por a API no ar
-
-# APP ainda não finalizado
-
-# Estudando para por API no ar
-
-```
+- Splash Screen ✔️
+- Animação de entrada ✔️
+- Itens na aba de categoria ✔️
+- Itens salvos como favoritos ✔️
+- Home do app com todos os posts ✔️
+- Cada categoria ja com filtro  ✔️
+- Botão de search funcional ✔️
+- Botão de compartilhar funcional ✔️
+- Link externo dentro do post ✔️
+- Imagem dentro de cada post ✔️
+- Link abre em uma aba dentro do app ✔️
+- Página de search funcional ✔️
+- Favicon ✔️
+- API na nuvem ❌
+- APK disponivel ❌
+- Criar post dentro do app ❌
+- Favoritos de categorias diferentes ❌
