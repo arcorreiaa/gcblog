@@ -15,7 +15,7 @@
 
 ```bash
 # Clone o repositório
-$ git clone git@github.com:alexjou/tinnova.git
+$ git clone 
 
 # Entre na pasta
 $ cd tinnova
