@@ -21,6 +21,7 @@
 ## Installing / Getting started
 
 ```bash
+
 # Clone o repositório
 $ git clone https://github.com/arcorreiaa/gcblog.git
 
@@ -32,6 +33,7 @@ $ yarn install
 
 # Inicie o site
 $ yarn start
+
 ```
 
 ## Developing
