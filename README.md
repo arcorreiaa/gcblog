@@ -2,13 +2,16 @@
 
 
 </br>
+
 </br>
 
 <div align="center">
  
 <img src="https://github.com/arcorreiaa/portifolio/blob/main/src/assets/img/grandchase.gif" width="300" height="600" alt="Logo of the project" align="center">
 </div>
+
 </br>
+
 </br>
 
 
